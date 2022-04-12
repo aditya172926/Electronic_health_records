@@ -4,17 +4,17 @@
 <h1> Sign Up Page </h1>
 <form method="POST">
 	{% csrf_token %}
-	<div class="form-group">
-		
+	<div>
+		<input type="text" placeholder="enter username" name="un" required>
+		<br><br>
+		<input type="password" placeholder="enter password" name="pw1" required>
+		<br><br>
+		<input type="password" placeholder="repeat password" name="pw2" required>
+		<br><br>
+		<input type="submit" value="Sign Up">
+		<br><br>
 	</div>
-	<input type="text" class="form-control" placeholder="enter username" name="un" required>
-	<br><br>
-	<input type="password" placeholder="enter password" name="pw1" required>
-	<br><br>
-	<input type="password" placeholder="repeat password" name="pw2" required>
-	<br><br>
-	<input type="submit" value="Sign Up">
-	<br><br>
+	
 </form>
 {{ msg }}
 {% endblock %}
