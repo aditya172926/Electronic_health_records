@@ -2,6 +2,8 @@
 
 <head>
 	<title> {% block title %} {% endblock %} </title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
 	<style>
 		* {
 			font-size: 40px
@@ -11,11 +13,11 @@
 			background-color: lightblue;
 		}
 
-		#nav a {
+		/* #nav a {
 			color: white;
 			text-decoration: none;
 			padding: 30px;
-		}
+		} */
 	</style>
 </head>
 
