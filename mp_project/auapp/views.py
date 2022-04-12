@@ -20,9 +20,9 @@ def user_signup(request):
 				login(request, usr)
 				return redirect("index")
 		else:
-			return render(request, "user_signup.html",{"msg":"password dont match"})
+			return render(request, "user_signup.html", {"msg":"Passwords don't match."})
 	else:
-		return render(request,"user_signup.html")\
+		return render(request,"user_signup.html")
 
 
 def user_login(request):

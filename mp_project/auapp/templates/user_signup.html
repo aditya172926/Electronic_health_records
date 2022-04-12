@@ -3,7 +3,7 @@
 {% block content %}
 <h1> Sign Up Page </h1>
 <form method="POST">
-{% csrf_token %}
+	{% csrf_token %}
 	<input type="text" placeholder="enter username" name="un" required>
 	<br><br>
 	<input type="password" placeholder="enter password" name="pw1" required>
