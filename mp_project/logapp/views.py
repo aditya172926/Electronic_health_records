@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
-def home(request):
+def index(request):
 	if request.GET.get("n1") and request.GET.get("n2"):
-		return render(request, "home.html", {"msg":msg})
+		return render(request, "index.html", {"msg":msg})
 	else:
-		return render(request,"home.html")
+		return render(request,"index.html")
 	

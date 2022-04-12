@@ -30,7 +30,7 @@ def user_login(request):
 			return render(request,"user_login.html", {"msg":"invalid login"})
 		else:
 			login(request, usr)
-			return redirect("home")
+			return redirect("index")
 	else:
 		return render(request, "user_login.html")
 
