@@ -6,4 +6,8 @@ def index(request):
 		return render(request, template_name, {"msg":"page rendered"})
 	else:
 		return render(request, template_name)
+
+def AboutPage(request):
+	template_name="logapp/about.html"
+	return render(request, template_name, {"msg": "About page loaded"})
 	

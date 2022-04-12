@@ -4,7 +4,7 @@
 <head>
 	{% load static %}
 	<title> {% block title %} {% endblock %} </title>
-	<link rel="stylesheet" href="{% static 'logapp/css/bootstrap.min.css' %}" >
+	<link rel="stylesheet" href="{% static 'logapp/css/bootstrap.min.css' %}">
 </head>
 
 <body>
@@ -12,33 +12,34 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #83c6f5; padding-left: 5%;">
 		<a class="navbar-brand" href="#">Healthcare</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav" style="align-items:flex-end;">
-		  <ul class="navbar-nav">
-			{% if user.is_authenticated %}
-			<li class="nav-item">
-				<a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
-			</li>
-			{% else %}
-			<li class="nav-item active">
-			  <a class="nav-link" href="{% url 'user_signup' %}">Signup</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="{% url 'user_login' %}">Login</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">About</a>
-			  </li>
-			{% endif %}
-		  </ul>
+			<ul class="navbar-nav">
+				{% if user.is_authenticated %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+				</li>
+				{% else %}
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'user_signup' %}">Signup</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'user_login' %}">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				{% endif %}
+			</ul>
 		</div>
-	  </nav>
+	</nav>
 
-	  <center>
+	<center>
 		{% block content %}{% endblock %}
-	  </center>
+	</center>
 </body>
 
 </html>
