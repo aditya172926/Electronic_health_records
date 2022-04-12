@@ -14,7 +14,11 @@ def user_signup(request):
 			except User.DoesNotExist:
 				usr = User.objects.create_user(username=un, password=pw1)
 				usr.save()
-				return redirect("user_login")
+				usr = authenticate(username = un, password = pw1)
+				if usr is None:
+					return render(request, "user_signup.html", {"msg": "Something went wrong! Please try to login directly."})
+				login(request, usr)
+				return redirect("index")
 		else:
 			return render(request, "user_signup.html",{"msg":"password dont match"})
 	else:
