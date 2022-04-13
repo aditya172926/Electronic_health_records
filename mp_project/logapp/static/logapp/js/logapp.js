@@ -1,11 +1,17 @@
-const test2 = () => {
-    console.log("Function working");
-}
-
 var currentAccount;
+
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+var contractAbi = '';
+
+fetch("../static/logapp/utils/healthCare.json")
+.then(response => {
+    return response.json();
+})
+.then(data => contractAbi = data.abi);
 
 function test() {
     console.log("Function working");
+    console.log(contractAbi);
     try {
         const ethereum = window;
         if (!ethereum) {
