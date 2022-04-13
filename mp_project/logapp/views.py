@@ -14,3 +14,7 @@ def AboutPage(request):
 def PatientSignUp(request):
 	template_name="logapp/patient.html"
 	return render(request, template_name, {"msg": "Patient page loaded"})
+
+def Prescription(request):
+	template_name="logapp/prescription.html"
+	return render(request, template_name, {"msg": "Prescription page loaded"})
