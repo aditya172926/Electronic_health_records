@@ -46,6 +46,22 @@
 		</div>
 	</nav>
 
+	{% if user.is_authenticated %}
+	<div>
+		<a  href="#" class="mybutton"> Dashboard </a>
+	</div>
+	<div> 
+		<a  href="#" class="mybutton"> Appointment </a>
+	</div>    
+		<a  href="#" class="mybutton"> Doctors </a>
+	<div>    
+		<a  href="#" class="mybutton"> Department </a>
+	</div> 
+	<div>    
+		<a  href="#" class="mybutton"> Patients</a>
+	</div>
+	{% endif %}
+
 	<center>
 		{% block content %}{% endblock %}
 	</center>
