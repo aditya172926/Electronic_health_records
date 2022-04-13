@@ -5,9 +5,14 @@
 	{% load static %}
 	<title> {% block title %} {% endblock %} </title>
 	<link rel="stylesheet" href="{% static 'logapp/css/bootstrap.min.css' %}">
+	<script src = "../static/logapp/js/logapp.js"></script>
 </head>
 
 <body>
+
+	<script type="module">
+		import { ethers } from "../static/logapp/js/ethers-5.1.esm.min.js";
+	</script>
 
 
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #83c6f5; padding-left: 5%;">
@@ -24,7 +29,7 @@
 				</li>
 				{% else %}
 				<li class="nav-item active">
-					<a class="nav-link" href="{% url 'user_signup' %}">Signup</a>
+					<a class="nav-link" onclick="test()" href="#">Signup</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{% url 'user_login' %}">Login</a>
