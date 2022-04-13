@@ -2,4 +2,33 @@
 {% block title %} Patient {% endblock %}
 {% block content %}
 <h1> Register the Patient </h1>
+
+<div>
+    <form id="patientSignUpForm">
+        <div id="name-group" class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" required>
+        </div>
+        <div id="age-group" class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+        </div>
+        <div id="address-group" class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
+        </div>
+        <div id="contact-group" class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your contact" required>
+        </div>
+        <div id="email-group" class="form-group">
+            <label for="email">Email address</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+<br><br>
+        <button type="submit" class="btn btn-success">
+            Submit
+        </button>
+    </form>
+</div>
 {% endblock  %}
