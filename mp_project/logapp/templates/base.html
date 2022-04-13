@@ -5,6 +5,7 @@
 	{% load static %}
 	<title> {% block title %} {% endblock %} </title>
 	<link rel="stylesheet" href="{% static 'logapp/css/bootstrap.min.css' %}">
+	<script src="{% static 'logapp/js/jquery-3.6.0.js' %}"></script>
 	<script src = "../static/logapp/js/logapp.js"></script>
 </head>
 
@@ -29,7 +30,7 @@
 				</li>
 				{% else %}
 				<li class="nav-item active">
-					<a class="nav-link" onclick="test()" href="#">Signup</a>
+					<a class="nav-link" onclick="test()" href="{% url 'user_signup' %}">Signup</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{% url 'user_login' %}">Login</a>
