@@ -109,6 +109,17 @@ $(document).ready(function () {
             console.log(error);
         }
     });
+
+    $("#giveAccessForm").submit(function(event) {
+        event.preventDefault();
+        try {   
+            let doctorAddress = $("#doctoraddress").val();
+            console.log("The give doctor address is - ", doctorAddress);
+            giveAccessToDoctor(doctorAddress);
+        } catch (error) {
+            console.log(error);
+        }
+    });
 });
 
 // function to register a patient
@@ -146,8 +157,16 @@ const getPatientProfile = async () => {
             // const provider = new ethers.providers.Web3Provider(ethereum);
             // const signer = provider.getSigner();
             // const healthCareContract = new ethers.Contract(contractAddress, contractAbi, signer);
+
             const patient = await healthCareContract.getPatientInfo();
             console.log(patient);
+            let registerType = "patient";
+            $("#patientName").html("");
+            $("#patientAddress").html("");
+            $("#patientAge").html("");
+            $("#patientName").append(patient[0]);
+            $("#patientAddress").append(patient[1]);
+            $("#patientAge").append(patient[2]);
         } else {
             console.log("Ethereum object not found");
         }
@@ -181,7 +200,7 @@ const getDoctorProfile = async() => {
         const { ethereum } = window;
         if (ethereum) {
             const doctorProfile = await healthCareContract.getDoctorInfo();
-            console.log("The doctor's profile", doctorProfile[0]);
+            console.log("The doctor's profile", doctorProfile);
             $("#doctorname").html("");
             $("#doctoraddress").html("");
             $("#doctorpatients").html("");
@@ -204,6 +223,23 @@ const getDoctorProfile = async() => {
             })
         } else {
             console.log("Ethereum object doesn't exists");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const giveAccessToDoctor = async(doctorAddress) => {
+    try {
+        const { ethereum } = window;
+        if (ethereum) {
+            const giveAccessTxn = await healthCareContract.grantAccessToDoctor(doctorAddress);
+            console.log("Mining... ", giveAccessTxn.hash);
+            await giveAccessTxn.wait();
+            console.log("Mined ", giveAccessTxn.hash);
+            console.log("Access give from patient - " + currentAccount + " to doctor - " + doctorAddress);
+        } else {
+            console.log("Ethereum object not found");
         }
     } catch (error) {
         console.log(error);

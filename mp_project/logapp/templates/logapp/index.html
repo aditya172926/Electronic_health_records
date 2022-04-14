@@ -4,4 +4,23 @@
 {% block content %}
 <h2>Get Patients profile</h2>
 <button type="button" onclick="getPatientProfile()" class="btn btn-primary">My Profile</button>
+
+<div id="displayPatientProfile">
+    <p id="patientName"></p>
+    <p id="patientAddress"></p>
+    <p id="patientAge"></p>
+</div>
+
+<form id="giveAccessForm">
+    <div id="doctoraddress-group" class="form-group row">
+        <label class="col-sm-2 col-form-label" for="doctoraddress">Doctor Address -</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="doctoraddress" name="doctoraddress" placeholder="Enter doctor address" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">
+        Give Access
+    </button>
+</form>
+
 {% endblock %}
