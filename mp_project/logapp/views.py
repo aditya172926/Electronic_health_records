@@ -18,3 +18,7 @@ def EntitySignUp(request):
 def Prescription(request):
 	template_name="logapp/prescription.html"
 	return render(request, template_name, {"msg": "Prescription page loaded"})
+
+def GetDoctorProfile(request):
+	template_name = "logapp/doctor.html"
+	return render(request, template_name, {"msg": "doctor is loaded"})

@@ -134,6 +134,25 @@ const signupPatient = async (name, age, address, contact_number, email_id) => {
     }
 }
 
+// getting the patient profile
+const getPatientProfile = async () => {
+    try {
+        const { ethereum } = window;
+        if (ethereum) {
+            const provider = new ethers.providers.Web3Provider(ethereum);
+            const signer = provider.getSigner();
+            const healthCareContract = new ethers.Contract(contractAddress, contractAbi, signer);
+            const patient = healthCareContract.getPatientInfo();
+            console.log(patient);
+        } else {
+            console.log("Ethereum object not found");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// function to register a doctor/medical personnel
 const signUpdoctor = async (name) => {
     console.log(healthCareContract);
     try {
@@ -151,18 +170,16 @@ const signUpdoctor = async (name) => {
     }
 }
 
-// getting the patient profile
-const getPatientProfile = async () => {
+// function to get the doctor's profile
+const getDoctorProfile = async() => {
+    console.log(healthCareContract);
     try {
         const { ethereum } = window;
         if (ethereum) {
-            const provider = new ethers.providers.Web3Provider(ethereum);
-            const signer = provider.getSigner();
-            const healthCareContract = new ethers.Contract(contractAddress, contractAbi, signer);
-            const patient = healthCareContract.getPatientInfo();
-            console.log(patient);
+            const doctorProfile = await healthCareContract.getDoctorInfo();
+            console.log(doctorProfile);
         } else {
-            console.log("Ethereum object not found");
+            console.log("Ethereum object doesn't exists");
         }
     } catch (error) {
         console.log(error);
