@@ -2,7 +2,8 @@
 {% block title %} Doctor Profile {% endblock %}
 
 {% block content %}
-        <button type="button" onclick="getDoctorProfile()" class="btn btn-success">
-            Get Doctor Profile
-        </button>
+{{ data.doctor }}
+<button type="button" id="doctorProfileButton" url="{% url 'doctorprofile' %}" onclick="getDoctorProfile()" class="btn btn-success">
+    Get Doctor Profile
+</button>
 {% endblock %}

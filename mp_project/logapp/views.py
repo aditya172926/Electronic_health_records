@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
 
 def index(request):
 	template_name = "logapp/index.html"
@@ -19,6 +20,13 @@ def Prescription(request):
 	template_name="logapp/prescription.html"
 	return render(request, template_name, {"msg": "Prescription page loaded"})
 
-def GetDoctorProfile(request):
+def LoadDoctorPage(request):
 	template_name = "logapp/doctor.html"
 	return render(request, template_name, {"msg": "doctor is loaded"})
+
+def GetDoctorProfile(request):
+	if request.method == 'GET':
+		doctordata = request.GET
+		template_name = "logapp/doctor.html"
+		print(doctordata)
+		return JsonResponse("doctordata", status=200, safe=False)

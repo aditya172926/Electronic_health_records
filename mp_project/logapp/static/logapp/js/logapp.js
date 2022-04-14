@@ -177,7 +177,21 @@ const getDoctorProfile = async() => {
         const { ethereum } = window;
         if (ethereum) {
             const doctorProfile = await healthCareContract.getDoctorInfo();
-            console.log(doctorProfile);
+            // console.log(doctorProfile);
+            let url = document.getElementById("doctorProfileButton").attributes.url.value;
+            data = {};
+            data['doctor'] = doctorProfile;
+            $.ajax({
+                method: 'GET',
+                url: url,
+                data: data,
+                success: function(result) {
+                    console.log(result);
+                },
+                error: function(response) {
+                    console.log(response);
+                }
+            })
         } else {
             console.log("Ethereum object doesn't exists");
         }
