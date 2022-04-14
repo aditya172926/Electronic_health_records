@@ -181,7 +181,13 @@ const getDoctorProfile = async() => {
         const { ethereum } = window;
         if (ethereum) {
             const doctorProfile = await healthCareContract.getDoctorInfo();
-            // console.log(doctorProfile);
+            console.log("The doctor's profile", doctorProfile[0]);
+            $("#doctorname").html("");
+            $("#doctoraddress").html("");
+            $("#doctorpatients").html("");
+            $("#doctorname").append(doctorProfile[0]);
+            $("#doctoraddress").append(doctorProfile[1]);
+            $("#doctorpatients").append(doctorProfile[2]);
             let url = document.getElementById("doctorProfileButton").attributes.url.value;
             data = {};
             data['doctor'] = doctorProfile;
