@@ -2,68 +2,69 @@
 {% block title %} Patient {% endblock %}
 
 {% block content %}
+<h1> Register Yourself </h1><br>
 
-<div class="container">
-    <h1> Register Yourself </h1><br>
-
-    <form id="patientSignUpForm">
-        <div id="name-group" class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" required>
-            </div>
-        </div><br>
-        <div id="age-group" class="form-group row">
-            <label for="age" class="col-sm-2 col-form-label">Age</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
-            </div>
-        </div><br>
-        <div id="address-group" class="form-group row">
-            <label for="address" class="col-sm-2">Address</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
-            </div>
-        </div><br>
-        <div id="contact-group" class="form-group row">
-            <label for="contact" class="col-sm-2">Contact</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your contact" required>
-            </div>
-        </div><br>
-        <div id="email-group" class="form-group row">
-            <label for="email" class="col-sm-2">Email address</label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-            </div>
+<form id="patientSignUpForm">
+    <div id="name-group" class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" required>
         </div>
-        <!-- Radio buttons -->
-        <br>
-        <br>
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-2 pt-0">Access Categories</legend>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="signupRadios" id="patientRadioButton" value="patient">
-                        <label class="form-check-label" for="patientRadioButton">Patient</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="signupRadios" id="doctorRadioButton" value="doctor">
-                        <label class="form-check-label" for="doctorRadioButton">Doctor</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="signupRadios" id="labsRadioButton" value="labs">
-                        <label class="form-check-label" for="labsRadioButton">Lab and other</label>
-                    </div>
+    </div><br>
+    <div id="age-group" class="form-group row">
+        <label for="age" class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+        </div>
+    </div><br>
+    <div id="address-group" class="form-group row">
+        <label for="address" class="col-sm-2">Address</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address"
+                required>
+        </div>
+    </div><br>
+    <div id="contact-group" class="form-group row">
+        <label for="contact" class="col-sm-2">Contact</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your contact"
+                required>
+        </div>
+    </div><br>
+    <div id="email-group" class="form-group row">
+        <label for="email" class="col-sm-2">Email address</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+    </div>
+    <!-- Radio buttons -->
+    <br>
+    <br>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Access Categories</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="signupRadios" id="patientRadioButton"
+                        value="patient">
+                    <label class="form-check-label" for="patientRadioButton">Patient</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="signupRadios" id="doctorRadioButton"
+                        value="doctor">
+                    <label class="form-check-label" for="doctorRadioButton">Doctor</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="signupRadios" id="labsRadioButton" value="labs">
+                    <label class="form-check-label" for="labsRadioButton">Lab and other</label>
                 </div>
             </div>
-        </fieldset>
-        
-<br><br>
-        <button type="submit" class="btn btn-success">
-            Submit
-        </button>
-    </form>
-</div>
-{% endblock  %}
+        </div>
+    </fieldset>
+
+    <br><br>
+    <button type="submit" class="btn btn-success">
+        Submit
+    </button>
+</form>
+{% endblock %}

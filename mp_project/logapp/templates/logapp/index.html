@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock %}
+
 {% block content %}
-<h1> Medical Personnel Login {{user.username}} </h1>
-{% endblock  %}
+<h2>Get Patients profile</h2>
+<button type="button" onclick="getPatientProfile()" class="btn btn-primary">My Profile</button>
+{% endblock %}

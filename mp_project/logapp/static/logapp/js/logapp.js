@@ -11,6 +11,10 @@ fetch("../static/logapp/utils/healthCare.json")
     })
     .then(data => contractAbi = data.abi);
 
+$(document).ready(function() {
+    checkIfWalletIsConnected();
+})
+
 // importing the ethers from the JavaScript file.
 var ethers = Object;
 var provider = Object;
@@ -20,7 +24,7 @@ function assignEtherObject(ethers) {
     provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     healthCareContract = new ethers.Contract(contractAddress, contractAbi, signer);
-    console.log(healthCareContract);
+    // console.log(healthCareContract);
 }
 
 function test() {
@@ -55,8 +59,8 @@ const checkIfWalletIsConnected = async () => {
 
         if (accounts.length !== 0) {
             const account = accounts[0];
-            console.log("Found an authorized account:", account);
-            currentAccount = account;
+            console.log("Found an authorized account:", account); // confirms that the wallet is connected
+            currentAccount = account; // sets the current account's address.
         } else {
             console.log("No authorized account found");
         }
@@ -139,10 +143,10 @@ const getPatientProfile = async () => {
     try {
         const { ethereum } = window;
         if (ethereum) {
-            const provider = new ethers.providers.Web3Provider(ethereum);
-            const signer = provider.getSigner();
-            const healthCareContract = new ethers.Contract(contractAddress, contractAbi, signer);
-            const patient = healthCareContract.getPatientInfo();
+            // const provider = new ethers.providers.Web3Provider(ethereum);
+            // const signer = provider.getSigner();
+            // const healthCareContract = new ethers.Contract(contractAddress, contractAbi, signer);
+            const patient = await healthCareContract.getPatientInfo();
             console.log(patient);
         } else {
             console.log("Ethereum object not found");
@@ -172,7 +176,7 @@ const signUpdoctor = async (name) => {
 
 // function to get the doctor's profile
 const getDoctorProfile = async() => {
-    console.log(healthCareContract);
+    // console.log(healthCareContract);
     try {
         const { ethereum } = window;
         if (ethereum) {
