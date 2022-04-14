@@ -36,7 +36,7 @@ p5 {
   color: black;
   font-size: 20px;
 }
-
+/* 
 .card1 {
   color: black;
   text-decoration: none;
@@ -79,4 +79,36 @@ p5 {
   padding-top: 1rem;
   padding-bottom: 10px;
   font-size: 20px;
+} */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #83c6f5;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+.sidebar a:focus {
+  background-color: white;
+  color: #50b0f5;
+}
+.sidebar a:active {
+  background-color: white;
+  color: #50b0f5;
+}
+.sidebar a:hover:not(.active) {
+  background-color: white;
+  color: black;
+}
+div.container {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
 }

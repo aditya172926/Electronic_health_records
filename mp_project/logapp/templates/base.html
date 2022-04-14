@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="{% static 'logapp/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="../static/logapp/css/style.css">
 	<script src="{% static 'logapp/js/jquery-3.6.0.js' %}"></script>
-	<script src = "../static/logapp/js/logapp.js"></script>
+	<script src="../static/logapp/js/logapp.js"></script>
 </head>
 
 <body>
@@ -55,22 +55,13 @@
 	</nav>
 
 	{% if user.is_authenticated %}
-	
-	<div class="card1">
-		<a href="{% url 'index' %}" class="card1"> Dashboard </a>
-	</div>
-	<div class="card2">
-		<a href="#" class="card2"> Appointment </a>
-	</div class="card3">
-	<a href="#" class="card3"> Doctors </a>
-	<div class="card4">
-		<a href="#" class="card4"> Department </a>
-	</div>
-	<div class="card5">
-		<a href="#" class="card5"> Patients</a>
-	</div>
-	<div class="card4">
-		<a href="{% url 'prescription' %}" class="card6"> Prescription</a>
+	<div class="sidebar">
+		<a href="{% url 'index' %}"> Dashboard </a>
+		<a href="#">Appointment </a>
+		<a href="#"> Doctors </a>
+		<a href="#"> Department </a>
+		<a href="#"> Patients</a>
+		<a href="{% url 'prescription' %}"> Prescription</a>
 	</div>
 	{% endif %}
 

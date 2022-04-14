@@ -6,17 +6,32 @@
 
     <h2>Add Prescription</h2>
 
-    <form>
-        <label for="fname">Prescription Name:</label><br>
-        <input type="text" id="pname" name="pname"><br>
-        <label for="treatment">Treatment:</label><br>
-        <input type="text" id="treatment" name="treatment">
-        <label for="dose">Dose Information:</label><br>
-        <input type="text" id="dose" name="dose">
+    <form id="prescriptionForm">
+        <div id="pres-name-group" class="form-group row">
+            <label for="pres-fname" class="col-sm-2 col-form-label">Prescription Name:</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="pres-fname" name="pres-fname" placeholder="Enter Prescription name" required>
+            </div>
+        </div>
+        <br>
+        <div id="pres-treatment-group" class="form-group row">
+            <label for="pres-treatment" class="col-sm-2 col-form-label">Treatment:</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="pres-treatment" name="pres-treatment" placeholder="Enter Treatement" required>
+            </div>
+        </div>
+        <br>
+        <div id="pres-dose-group" class="form-group row">
+            <label for="pres-dose" class="col-sm-2 col-form-label">Dose Information: </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="pres-dose" name="pres-dose" placeholder="Enter dose" required>
+            </div>
+        </div>
     </form>
-    <input type="Submit" value="Submit">
-
-
+    <br>
+    <button type="submit" class="btn btn-success">
+        Submit
+    </button>
 </body>
 
 </html>
