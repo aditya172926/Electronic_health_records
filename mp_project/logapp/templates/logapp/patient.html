@@ -1,29 +1,41 @@
 {% extends 'base.html' %}
 {% block title %} Patient {% endblock %}
-{% block content %}
-<h1> Register the Patient </h1>
 
-<div>
+{% block content %}
+
+<div class="container">
+    <h1> Register Yourself </h1><br>
+
     <form id="patientSignUpForm">
-        <div id="name-group" class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" required>
-        </div>
-        <div id="age-group" class="form-group">
-            <label for="age">Age</label>
-            <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
-        </div>
-        <div id="address-group" class="form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
-        </div>
-        <div id="contact-group" class="form-group">
-            <label for="contact">Contact</label>
-            <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your contact" required>
-        </div>
-        <div id="email-group" class="form-group">
-            <label for="email">Email address</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        <div id="name-group" class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" required>
+            </div>
+        </div><br>
+        <div id="age-group" class="form-group row">
+            <label for="age" class="col-sm-2 col-form-label">Age</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+        </div><br>
+        <div id="address-group" class="form-group row">
+            <label for="address" class="col-sm-2">Address</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
+            </div>
+        </div><br>
+        <div id="contact-group" class="form-group row">
+            <label for="contact" class="col-sm-2">Contact</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your contact" required>
+            </div>
+        </div><br>
+        <div id="email-group" class="form-group row">
+            <label for="email" class="col-sm-2">Email address</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
         </div>
 <br><br>
         <button type="submit" class="btn btn-success">
