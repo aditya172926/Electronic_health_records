@@ -90,8 +90,17 @@ $(document).ready(function () {
             let age = $("#age").val();
             let contact_number = $("#contact").val();
             let email = $("#email").val();
-            console.log(name, address, age, contact_number, email);
-            signupPatient(name, age, address, contact_number, email);
+            let categoryType = document.querySelector('input[name="signupRadios"]:checked').value;
+            console.log(name, address, age, contact_number, email, categoryType);
+            if (categoryType == "patient") {
+                signupPatient(name, age, address, contact_number, email);
+            }
+            else if (categoryType == "doctor") {
+                signUpdoctor(name);
+            }
+            else {
+                console.log(categoryType);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -117,6 +126,23 @@ const signupPatient = async (name, age, address, contact_number, email_id) => {
             console.log("Mining...", patientTxn.hash);
             await patientTxn.wait();
             console.log("Mined", patientTxn.hash);
+        } else {
+            console.log("Ethereum object doesn't exists");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const signUpdoctor = async (name) => {
+    console.log(healthCareContract);
+    try {
+        const { ethereum } = window;
+        if (ethereum) {
+            const doctorTxn = await healthCareContract.signupDoctor(name);
+            console.log("Mining...", doctorTxn.hash);
+            await doctorTxn.wait();
+            console.log("Mined ", doctorTxn.hash);
         } else {
             console.log("Ethereum object doesn't exists");
         }

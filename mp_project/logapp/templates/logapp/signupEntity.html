@@ -37,6 +37,29 @@
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
             </div>
         </div>
+        <!-- Radio buttons -->
+        <br>
+        <br>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Access Categories</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="signupRadios" id="patientRadioButton" value="patient">
+                        <label class="form-check-label" for="patientRadioButton">Patient</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="signupRadios" id="doctorRadioButton" value="doctor">
+                        <label class="form-check-label" for="doctorRadioButton">Doctor</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="signupRadios" id="labsRadioButton" value="labs">
+                        <label class="form-check-label" for="labsRadioButton">Lab and other</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        
 <br><br>
         <button type="submit" class="btn btn-success">
             Submit

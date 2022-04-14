@@ -11,9 +11,9 @@ def AboutPage(request):
 	template_name="logapp/about.html"
 	return render(request, template_name, {"msg": "About page loaded"})
 	
-def PatientSignUp(request):
-	template_name="logapp/patient.html"
-	return render(request, template_name, {"msg": "Patient page loaded"})
+def EntitySignUp(request):
+	template_name="logapp/signupEntity.html"
+	return render(request, template_name, {"msg": "signupEntity page loaded"})
 
 def Prescription(request):
 	template_name="logapp/prescription.html"
