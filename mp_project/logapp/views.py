@@ -30,3 +30,11 @@ def GetDoctorProfile(request):
 		template_name = "logapp/doctor.html"
 		print(doctordata)
 		return JsonResponse("doctordata", status=200, safe=False)
+
+def FileUpload(request):
+	if request.method == 'POST':
+		data = request.POST
+		file = request.FILES
+		print(data)
+		print(file)
+		return JsonResponse("FileUpload responding", status=200, safe=False)

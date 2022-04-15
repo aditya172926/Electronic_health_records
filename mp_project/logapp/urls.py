@@ -8,5 +8,6 @@ urlpatterns = [
     path("signupEntity/", views.EntitySignUp, name="signupEntity"),
     path("prescription/", views.Prescription, name="prescription"),
     path("doctor/", views.LoadDoctorPage, name="doctor"),
-    path("doctorprofile/", views.GetDoctorProfile, name="doctorprofile")
+    path("doctorprofile/", views.GetDoctorProfile, name="doctorprofile"),
+    path("uploadfile/", views.FileUpload, name="uploadfile")
 ]

@@ -245,3 +245,43 @@ const giveAccessToDoctor = async(doctorAddress) => {
         console.log(error);
     }
 }
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+const uploadFile = async () => {
+    let data = new FormData($('#uploadFileForm').get(0));
+    console.log(data);
+    // let csrf_token = document.getElementById("uploadFileForm").attributes.csrf_token.value;
+    // console.log(csrf_token);
+    const csrf_token = getCookie('csrftoken');
+    console.log(csrf_token);
+    $.ajax({
+        url: document.getElementById("uploadFileForm").attributes.url.value,
+        method: document.getElementById("uploadFileForm").attributes.method.value,
+        headers: {'X-CSRFToken': csrf_token},
+        data: data,
+        cache: false,
+        processData: false,
+        contentTypr: false,
+        success: function(result) {
+            console.log("The file was sent");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
+}
