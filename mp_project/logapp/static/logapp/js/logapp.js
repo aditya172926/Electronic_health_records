@@ -1,7 +1,7 @@
 var currentAccount;
 
 // deployed contract address
-const contractAddress = "0xc01399A54bEd59FC9337182BE3BA4A582d9e5bEe";
+const contractAddress = "0xACD53046A7d7a37Bd4e6183d1DcEFb4a2CA1C605";
 var contractAbi = '';
 
 // getting the contract ABI
@@ -161,12 +161,14 @@ const getPatientProfile = async () => {
             const patient = await healthCareContract.getPatientInfo();
             console.log(patient);
             let registerType = "patient";
-            $("#patientName").html("");
-            $("#patientAddress").html("");
-            $("#patientAge").html("");
+            $("#patientName").html("Name: ");
+            $("#patientAddress").html("Account Address: ");
+            $("#patientAge").html("Age: ");
+            $("#patientDoctorAccess").html("Doctors Address: ");
             $("#patientName").append(patient[0]);
             $("#patientAddress").append(patient[1]);
             $("#patientAge").append(patient[2]);
+            $("#patientDoctorAccess").append(patient[4]);
         } else {
             console.log("Ethereum object not found");
         }
@@ -229,6 +231,7 @@ const getDoctorProfile = async() => {
     }
 }
 
+// patient can give the access to the doctor of his/her files.
 const giveAccessToDoctor = async(doctorAddress) => {
     try {
         const { ethereum } = window;
@@ -246,6 +249,7 @@ const giveAccessToDoctor = async(doctorAddress) => {
     }
 }
 
+// get CSRF token to make a post request.
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -262,6 +266,23 @@ function getCookie(name) {
     return cookieValue;
 }
 
+const addFileToPatientChain = async (fileName, fileType, filehash) => {
+    try {
+        const { ethereum } = window;
+        if (ethereum) {
+            const addPatientFileTxn = await healthCareContract.addFile(fileName, fileType, filehash);
+            console.log("Minig...", addPatientFileTxn.hash);
+            await addPatientFileTxn.wait();
+            console.log("Mined", addPatientFileTxn.hash);
+        } else {
+            console.log("Ethereum object not found");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// function to upload a file which is added as text.
 const uploadFile = async () => {
     let data = new FormData($('#uploadFileForm').get(0));
     console.log(data);
@@ -279,6 +300,33 @@ const uploadFile = async () => {
         contentTypr: false,
         success: function(result) {
             console.log("The file was sent");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
+}
+
+const uploadPrescriptions = async () => {
+    let presName = $("#pres-fname").val();
+    let treatmentName = $("#pres-treatment").val();
+    let dose = $("#pres-dose").val();
+    let presData = {
+        "presName": presName,
+        "treatmentName": treatmentName,
+        "dose": dose
+    }
+    // var data = $(this).serialize();
+    // const csrf_token = getCookie('csrftoken');
+    $.ajax({
+        url: document.getElementById("prescriptionForm").attributes.url.value,
+        method: "GET",
+        data: presData,
+        success: function(result) {
+            console.log(result["Name"]);
+            console.log(result["Hash"])
+            addFileToPatientChain(result["Name"], "txt", result["Hash"]);
+            console.log("The pres was sent");
         },
         error: function(response) {
             console.log(response);

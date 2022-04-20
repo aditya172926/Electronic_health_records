@@ -1,5 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
+import ipfsApi
+
 
 def index(request):
 	template_name = "logapp/index.html"
@@ -38,3 +40,18 @@ def FileUpload(request):
 		print(data)
 		print(file)
 		return JsonResponse("FileUpload responding", status=200, safe=False)
+
+def UploadPresFile(request):
+	if request.method == "GET":
+		print(request.GET["presName"])
+		presName = request.GET["presName"]
+		treatmentText = request.GET["treatmentName"]
+		dose = request.GET["dose"]
+		print(treatmentText)
+		writePrescription = open(presName + "prescription.txt", "w+")
+		writePrescription.write(treatmentText + "\n\n" + "Dose = " + dose)
+		writePrescription.close()
+		Ipfsapi = ipfsApi.Client('127.0.0.1', 5001)
+		Ipfs_response = Ipfsapi.add(presName + "prescription.txt")
+		print(Ipfs_response)
+		return JsonResponse(Ipfs_response, status=200, safe=False)

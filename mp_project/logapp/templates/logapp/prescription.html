@@ -6,7 +6,7 @@
 
     <h2>Add Prescription</h2>
 
-    <form id="prescriptionForm">
+    <form id="prescriptionForm" method="post" url="{% url 'uploadpresfile' %}">
         <div id="pres-name-group" class="form-group row">
             <label for="pres-fname" class="col-sm-2 col-form-label">Prescription Name:</label>
             <div class="col-sm-6">
@@ -17,7 +17,7 @@
         <div id="pres-treatment-group" class="form-group row">
             <label for="pres-treatment" class="col-sm-2 col-form-label">Treatment:</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="pres-treatment" name="pres-treatment" placeholder="Enter Treatement" required>
+                <textarea type="text" class="form-control" id="pres-treatment" name="pres-treatment" placeholder="Enter Treatement" rows="3" required></textarea>
             </div>
         </div>
         <br>
@@ -29,7 +29,7 @@
         </div>
     </form>
     <br>
-    <button type="submit" class="btn btn-success">
+    <button type="button" class="btn btn-success" onclick="uploadPrescriptions()">
         Submit
     </button>
 </body>

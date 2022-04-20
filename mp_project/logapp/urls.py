@@ -9,5 +9,6 @@ urlpatterns = [
     path("prescription/", views.Prescription, name="prescription"),
     path("doctor/", views.LoadDoctorPage, name="doctor"),
     path("doctorprofile/", views.GetDoctorProfile, name="doctorprofile"),
-    path("uploadfile/", views.FileUpload, name="uploadfile")
+    path("uploadfile/", views.FileUpload, name="uploadfile"),
+    path("uploadpresfile/", views.UploadPresFile, name="uploadpresfile")
 ]
