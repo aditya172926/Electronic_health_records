@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block title %} Doctor Profile {% endblock %}
+{% block header %}
+<link rel="stylesheet" href="../static/logapp/css/modal.css">
+{% endblock %}
 
 {% block content %}
 {{ data.doctor }}
@@ -12,4 +15,39 @@
     <p id="doctoraddress"></p>
     <p id="doctorpatients"></p>
 </div>
+
+<button type="button" id="doctorPatient" onclick="getDoctorPatients()" class="btn btn-primary">
+    Get Doctor Patient
+</button>
+
+<div id="getDoctorsPatients">
+    <!-- <p id="patientAddesss"></p> -->
+</div>
+
+
+<button id="myBtn" style="display: none;">Open Modal</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div>
+        <p>Some modal text.</p>
+        <p id="docPatname">Patient Name: </p>
+        <p id="docPatAge">Patient Age: </p>
+        <p id="docPatAddr">Patient Account Address: </p>
+        <!-- <form id="uploadFileForm" url="{% url 'uploadfile' %}" csrf_token="{{ csrf_token }}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="uploadFileInput">Upload file</label>
+                <input type="file" class="form-control-file" id="uploadFileInput">
+            </div>
+            <button type="button" class="btn btn-success" id="fileUploadButton" onclick="uploadFile()">Upload</button>
+        </form> -->
+        hi
+    </div>
+</div>
+
+
+<script src="../static/logapp/js/modal.js"></script>
 {% endblock %}

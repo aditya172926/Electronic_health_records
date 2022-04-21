@@ -231,6 +231,49 @@ const getDoctorProfile = async() => {
     }
 }
 
+const getPatInfoDoc = async (patientAddress) => {
+    await console.log(patientAddress.toString());
+    try {
+        const { ethereum } = window;
+        if (ethereum) {
+            const patinfoTxn = await healthCareContract.getPatientInfoForDoctor(patientAddress);
+            $("#docPatname").html("");
+            $("#docPatAge").html("");
+            $("#docPatAddr").html("");
+            $("#docPatname").html(patinfoTxn[0]);
+            $("#docPatAge").html(patinfoTxn[1]);
+            $("#docPatAddr").html(patinfoTxn[2]);
+        } else {
+            console.log("Ethereum object not found");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
+
+const getDoctorPatients = async () => {
+    try {
+        const { ethereum } = window;
+        if (ethereum) {
+            const getPatients = await healthCareContract.getDoctorInfo();
+            console.log(getPatients);
+            $("#patientAddesss").html("");
+            $("#patientAddesss").html(getPatients[2]);
+            $.each(getPatients[2], function(a,b) {
+                addr = "'" + b + "'";
+                patient_card = `<br><button class='btn btn-primary' onclick='getPatInfoDoc("${b}")' value='` + b + `'>`+ `Patient ` + a + `</button><br>`;
+                $('#getDoctorsPatients').append(patient_card);
+            });
+        } else {
+            console.log("Ethereum object not found");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // patient can give the access to the doctor of his/her files.
 const giveAccessToDoctor = async(doctorAddress) => {
     try {
