@@ -29,17 +29,23 @@
 			<ul class="navbar-nav">
 				{% if user.is_authenticated %}
 				<li class="nav-item">
+					<a class="nav-link" href="{% url 'about' %}">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" onclick="connectWallet()" href="#">Connect Wallet</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
 				</li>
 				{% else %}
 				<li class="nav-item active">
-					<a class="nav-link" onclick="test()" href="#">Signup</a>
+					<a class="nav-link" onclick="test()" href="{% url 'user_signup' %}">Signup</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{% url 'user_login' %}">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
+					<a class="nav-link" href="{% url 'about' %}">About</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" onclick="connectWallet()" href="#">Connect Wallet</a>
@@ -58,10 +64,10 @@
 	{% if user.is_authenticated %}
 	<div class="sidebar">
 		<a href="{% url 'index' %}"> Dashboard </a>
-		<a href="#">Appointment </a>
+		<!-- <a href="#">Appointment </a>
 		<a href="#"> Doctors </a>
 		<a href="#"> Department </a>
-		<a href="#"> Patients</a>
+		<a href="#"> Patients</a> -->
 		<a href="{% url 'prescription' %}"> Prescription</a>
 	</div>
 	{% endif %}
