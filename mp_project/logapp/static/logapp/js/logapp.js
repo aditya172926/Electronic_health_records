@@ -1,7 +1,7 @@
 var currentAccount;
 
 // deployed contract address
-const contractAddress = "0xACD53046A7d7a37Bd4e6183d1DcEFb4a2CA1C605";
+const contractAddress = "0x174A3EdAF646fd9B9B946F3836Cf472097e47efA";
 var contractAbi = '';
 
 // getting the contract ABI
@@ -237,12 +237,17 @@ const getPatInfoDoc = async (patientAddress) => {
         const { ethereum } = window;
         if (ethereum) {
             const patinfoTxn = await healthCareContract.getPatientInfoForDoctor(patientAddress);
+            console.log(patinfoTxn);
             $("#docPatname").html("");
             $("#docPatAge").html("");
             $("#docPatAddr").html("");
             $("#docPatname").html(patinfoTxn[0]);
             $("#docPatAge").html(patinfoTxn[1]);
             $("#docPatAddr").html(patinfoTxn[2]);
+            $.each(patinfoTxn[3], function(a,b) {
+                patFileBtn = `<button class='btn btn-success'><a target='blank' href='http://127.0.0.1:8080/ipfs/` + b + `?filename=` + b + `' >File ` + a + `</a></button> `;
+                $('#patientPrescriptions').append(patFileBtn);
+            })
         } else {
             console.log("Ethereum object not found");
         }
@@ -262,7 +267,6 @@ const getDoctorPatients = async () => {
             $("#patientAddesss").html("");
             $("#patientAddesss").html(getPatients[2]);
             $.each(getPatients[2], function(a,b) {
-                addr = "'" + b + "'";
                 patient_card = `<br><button class='btn btn-primary' onclick='getPatInfoDoc("${b}")' value='` + b + `'>`+ `Patient ` + a + `</button><br>`;
                 $('#getDoctorsPatients').append(patient_card);
             });
