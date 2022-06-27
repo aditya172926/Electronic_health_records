@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 import ipfsApi
+from .forms import PresImageForm
 
 
 def index(request):

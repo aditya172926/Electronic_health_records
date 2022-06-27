@@ -1,8 +1,0 @@
-This are the steps to be followed by the patient 1.
-1. Do this
-2. Do this again
-3. Take this medicine
-4. Don't do this.
-and more for the patient 1
-
-Dose = 34

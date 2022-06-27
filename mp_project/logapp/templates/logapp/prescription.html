@@ -8,23 +8,23 @@
 
     <form id="prescriptionForm" method="post" url="{% url 'uploadpresfile' %}">
         <div id="pres-name-group" class="form-group row">
-            <label for="pres-fname" class="col-sm-2 col-form-label">Prescription Name:</label>
+            <label for="pres-fname" class="col-sm-2 col-form-label">Prescription Title:</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="pres-fname" name="pres-fname" placeholder="Enter Prescription name" required>
+                <input type="text" class="form-control" id="pres-fname" name="pres-fname" placeholder="Enter Prescription Title" required>
             </div>
         </div>
         <br>
         <div id="pres-treatment-group" class="form-group row">
             <label for="pres-treatment" class="col-sm-2 col-form-label">Treatment:</label>
             <div class="col-sm-6">
-                <textarea type="text" class="form-control" id="pres-treatment" name="pres-treatment" placeholder="Enter Treatement" rows="3" required></textarea>
+                <textarea type="text" class="form-control" id="pres-treatment" name="pres-treatment" placeholder="Enter Treatment" rows="3" required></textarea>
             </div>
         </div>
         <br>
         <div id="pres-dose-group" class="form-group row">
-            <label for="pres-dose" class="col-sm-2 col-form-label">Dose Information: </label>
+            <label for="pres-dose" class="col-sm-2 col-form-label">Medicine Information: </label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="pres-dose" name="pres-dose" placeholder="Enter dose" required>
+                <input type="text" class="form-control" id="pres-dose" name="pres-dose" placeholder="Enter Information" required>
             </div>
         </div>
     </form>

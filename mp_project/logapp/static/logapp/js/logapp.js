@@ -206,9 +206,9 @@ const getDoctorProfile = async() => {
             $("#doctorname").html("");
             $("#doctoraddress").html("");
             $("#doctorpatients").html("");
-            $("#doctorname").append(doctorProfile[0]);
-            $("#doctoraddress").append(doctorProfile[1]);
-            $("#doctorpatients").append(doctorProfile[2]);
+            $("#doctorname").append("Doctor Name: " + doctorProfile[0]);
+            $("#doctoraddress").append("Doctor id: " + doctorProfile[1]);
+            $("#doctorpatients").append("Patients: " + doctorProfile[2]);
             let url = document.getElementById("doctorProfileButton").attributes.url.value;
             data = {};
             data['doctor'] = doctorProfile;
@@ -241,11 +241,11 @@ const getPatInfoDoc = async (patientAddress) => {
             $("#docPatname").html("");
             $("#docPatAge").html("");
             $("#docPatAddr").html("");
-            $("#docPatname").html(patinfoTxn[0]);
-            $("#docPatAge").html(patinfoTxn[1]);
-            $("#docPatAddr").html(patinfoTxn[2]);
+            $("#docPatname").html("Patient Name: " + patinfoTxn[0]);
+            $("#docPatAge").html("Patient Age: " + patinfoTxn[1]);
+            $("#docPatAddr").html("Patient id: " + patinfoTxn[2]);
             $.each(patinfoTxn[3], function(a,b) {
-                patFileBtn = `<button class='btn btn-success'><a target='blank' href='http://127.0.0.1:8080/ipfs/` + b + `?filename=` + b + `' >File ` + a + `</a></button> `;
+                patFileBtn = `<button class='btn btn-light'><a target='blank' href='http://127.0.0.1:8080/ipfs/` + b + `?filename=` + b + `' >File ` + a + `</a></button> `;
                 $('#patientPrescriptions').append(patFileBtn);
             })
         } else {
